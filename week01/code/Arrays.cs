@@ -13,7 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Plan:
+        // 1. Create a double array with the size of 'length' to hold the results.
+        // 2. Loop through the array from index 0 to length - 1 using a for loop.
+        // 3. In each iteration, multiply 'number' by (i + 1) and save it at index i.
+        // 4. Return the array at the end.
+
+        double[] multiples = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +42,16 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Plan:
+        // 1. Find the index where the list needs to be split: data.Count - amount.
+        // 2. Get the last 'amount' items from the list using GetRange(splitIndex, amount) and store them in a new list.
+        // 3. Remove those last 'amount' items from the original list using RemoveRange(splitIndex, amount).
+        // 4. Insert the saved items at the front of the original list (index 0) using InsertRange.
+
+        int splitIndex = data.Count - amount;
+        List<int> endPart = data.GetRange(splitIndex, amount);
+        data.RemoveRange(splitIndex, amount);
+        data.InsertRange(0, endPart);
     }
 }
